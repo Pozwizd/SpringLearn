@@ -4,16 +4,83 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
-    <persistence-unit name="myApp">
+    <persistence-unit name="hibernate_one_to_one">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>hibernate_one_to_one.entity.Detail1to1</class>
+        <class>hibernate_one_to_one.entity.Employee1to1</class>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/my_db"/>
             <property name="javax.persistence.jdbc.user" value="bestuser"/>
             <property name="javax.persistence.jdbc.password" value="bestuser"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-
+            <property name="" value=""/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hibernate_one_to_one_uni">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>hibernate_one_to_one_uni.entity.Detail1to1Uni</class>
+        <class>hibernate_one_to_one_uni.entity.Employee1to1Uni</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/my_db"/>
+            <property name="javax.persistence.jdbc.user" value="bestuser"/>
+            <property name="javax.persistence.jdbc.password" value="bestuser"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hibernate_one_to_many">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>hibernate_one_to_many.entity.Department1toN</class>
+        <class>hibernate_one_to_many.entity.Employee1toN</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/my_db2"/>
+            <property name="javax.persistence.jdbc.user" value="bestuser"/>
+            <property name="javax.persistence.jdbc.password" value="bestuser"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hibernate_one_to_many_uni">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>hibernate_one_to_many_uni.entity.Department1toNUni</class>
+        <class>hibernate_one_to_many_uni.entity.Employee1toNUni</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/my_db2"/>
+            <property name="javax.persistence.jdbc.user" value="bestuser"/>
+            <property name="javax.persistence.jdbc.password" value="bestuser"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="hibernate_many_to_many">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>hibernate_many_to_many.entity.Child</class>
+        <class>hibernate_many_to_many.entity.Section</class>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/my_db3"/>
+            <property name="javax.persistence.jdbc.user" value="bestuser"/>
+            <property name="javax.persistence.jdbc.password" value="bestuser"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
 

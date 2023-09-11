@@ -1,4 +1,4 @@
-package hibernate_test;
+package hibernate_one_to_many_uni;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,7 +10,7 @@ public class EntityManagerUtil {
     private static final EntityManagerFactory emf;
 
     static {
-        emf = createEntityManagerFactory("myApp");
+        emf = createEntityManagerFactory("hibernate_one_to_many_uni");
     }
 
     public static EntityManager getEntityManager() {

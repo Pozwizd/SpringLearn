@@ -1,13 +1,13 @@
-package hibernate_test.entity;
+package hibernate_one_to_one_uni.entity;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee1to1Uni {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "id")
     private Long id;
 
     private String name;
@@ -17,14 +17,17 @@ public class Employee {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "details_id")
-    private Detail empDetail;
+    private Detail1to1Uni empDetail1to1Uni;
 
-    public Detail getEmpDetail() {
-        return empDetail;
+
+    public Employee1to1Uni(String name, String surname, String department, int salary) {
+        this.name = name;
+        this.surname = surname;
+        this.department = department;
+        this.salary = salary;
     }
 
-    public void setEmpDetail(Detail empDetail) {
-        this.empDetail = empDetail;
+    public Employee1to1Uni() {
     }
 
     public Long getId() {
@@ -33,16 +36,6 @@ public class Employee {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Employee(String name, String surname, String department, int salary) {
-        this.name = name;
-        this.surname = surname;
-        this.department = department;
-        this.salary = salary;
-    }
-
-    public Employee() {
     }
 
     public String getName() {
@@ -75,6 +68,14 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    public Detail1to1Uni getEmpDetail() {
+        return empDetail1to1Uni;
+    }
+
+    public void setEmpDetail(Detail1to1Uni empDetail1to1Uni) {
+        this.empDetail1to1Uni = empDetail1to1Uni;
     }
 
     @Override

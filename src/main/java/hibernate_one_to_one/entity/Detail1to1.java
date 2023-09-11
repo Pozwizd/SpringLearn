@@ -1,10 +1,11 @@
-package hibernate_test.entity;
+package hibernate_one_to_one.entity;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
 
 @Entity
 @Table( name ="details")
-public class Detail {
+public class Detail1to1 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +23,13 @@ public class Detail {
     @Column(name = "email")
     private String email;
 
-    public Detail() {
+    @OneToOne(mappedBy = "empDetail1to1", cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
+    private Employee1to1 employee1to1;
 
+    public Detail1to1() {
     }
 
-    public Detail(String city, String phoneNumber, String email) {
+    public Detail1to1(String city, String phoneNumber, String email) {
         this.city = city;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -62,6 +65,14 @@ public class Detail {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Employee1to1 getEmployee() {
+        return employee1to1;
+    }
+
+    public void setEmployee(Employee1to1 employee1to1) {
+        this.employee1to1 = employee1to1;
     }
 
     @Override

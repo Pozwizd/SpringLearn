@@ -1,12 +1,10 @@
-package hibernate_test;
+package hibernate_one_to_many;
 
-import hibernate_test.entity.Detail;
-import hibernate_test.entity.Employee;
+
+import hibernate_one_to_many.entity.Employee1toN;
+import hibernate_one_to_one.EntityManagerUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-
-import static javax.persistence.Persistence.createEntityManagerFactory;
 
 public class Test1 {
 
@@ -14,21 +12,15 @@ public class Test1 {
         EntityManager em = null;
 
 //        Добавление пользователя
-//        try{
+//        try {
 //            em = EntityManagerUtil.getEntityManager();
 //            em.getTransaction().begin();
-//            Employee emp = new Employee("Alex", "Ivanov", "IT", 700);
-//            Employee emp2 = new Employee("Sergey", "Sidorov", "HR", 600);
-//            Employee emp3 = new Employee("Ivan", "Ivanov", "IT", 700);
-//            em.persist(emp);
-//            em.persist(emp2);
-//            em.persist(emp3);
-//            Detail detail = new Detail("Kiev", "7777777", "XXXXXXXXXXXX");
-//            Detail detail2 = new Detail("Kharkiv", "7777777", "XXXXXXXXXXXX");
-//            Detail detail3 = new Detail("Lviv", "7777777", "XXXXXXXXXXXX");
-//            emp.setEmpDetail(detail);
-//            emp2.setEmpDetail(detail2);
-//            emp3.setEmpDetail(detail3);
+//            Department  department = new Department("IT", 1200, 200);
+//            Employee emp = new Employee("Oleg", "Ivanov", 700);
+//            Employee  emp1 = new Employee("Andrey", "Sidorov", 800);
+//            department.addEmployeeToDepartment(emp);
+//            department.addEmployeeToDepartment(emp1);
+//            em.persist(department);
 //            em.getTransaction().commit();
 //            System.out.println("Done!");
 //            em.close();
@@ -86,7 +78,8 @@ public class Test1 {
         try {
             em = EntityManagerUtil.getEntityManager();
             em.getTransaction().begin();
-            Employee emp = em.find(Employee.class, 1L);
+            // Удалить все содержимое таблицы
+            Employee1toN emp = em.find(Employee1toN.class, 4L);
             em.remove(emp);
             em.getTransaction().commit();
             System.out.println("Done!");

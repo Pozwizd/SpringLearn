@@ -1,20 +1,20 @@
-package hibernate_test;
+package hibernate_one_to_one_uni;
 
-import hibernate_test.entity.Employee;
+import hibernate_one_to_one_uni.entity.Employee1to1Uni;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class Test3 {
+public class Test2 {
     public static void main(String[] args) {
         EntityManager em = null;
         // Получение списка работников
         try {
             em = EntityManagerUtil.getEntityManager();
             em.getTransaction().begin();
-            List<Employee> employees = em.createQuery("from Employee where name= 'Alex'", Employee.class).getResultList();
-            for (Employee employee : employees) {
-                System.out.println(employee);
+            List<Employee1to1Uni> employee1to1Unis = em.createQuery("from Employee1to1 where name = 'Alex'", Employee1to1Uni.class).getResultList();
+            for (Employee1to1Uni employee1to1Uni : employee1to1Unis) {
+                System.out.println(employee1to1Uni);
             }
             em.getTransaction().commit();
             System.out.println("Done!");
